@@ -13,8 +13,9 @@ namespace CachetHQ\Cachet\Bus\Handlers\Commands\Schedule;
 
 use CachetHQ\Cachet\Bus\Commands\Schedule\CreateScheduleCommand;
 use CachetHQ\Cachet\Bus\Events\Schedule\ScheduleWasCreatedEvent;
-use CachetHQ\Cachet\Dates\DateFactory;
 use CachetHQ\Cachet\Models\Schedule;
+use CachetHQ\Cachet\Services\Dates\DateFactory;
+use Illuminate\Contracts\Auth\Guard;
 
 /**
  * This is the create schedule command handler.
@@ -24,21 +25,30 @@ use CachetHQ\Cachet\Models\Schedule;
 class CreateScheduleCommandHandler
 {
     /**
+     * The authentication guard instance.
+     *
+     * @var \Illuminate\Contracts\Auth\Guard
+     */
+    protected $auth;
+
+    /**
      * The date factory instance.
      *
-     * @var \CachetHQ\Cachet\Dates\DateFactory
+     * @var \CachetHQ\Cachet\Services\Dates\DateFactory
      */
     protected $dates;
 
     /**
      * Create a new update schedule command handler instance.
      *
-     * @param \CachetHQ\Cachet\Dates\DateFactory $dates
+     * @param \Illuminate\Contracts\Auth\Guard            $auth
+     * @param \CachetHQ\Cachet\Services\Dates\DateFactory $dates
      *
      * @return void
      */
-    public function __construct(DateFactory $dates)
+    public function __construct(Guard $auth, DateFactory $dates)
     {
+        $this->auth = $auth;
         $this->dates = $dates;
     }
 
@@ -53,7 +63,7 @@ class CreateScheduleCommandHandler
     {
         $schedule = Schedule::create($this->filter($command));
 
-        event(new ScheduleWasCreatedEvent($schedule));
+        event(new ScheduleWasCreatedEvent($this->auth->user(), $schedule));
 
         return $schedule;
     }

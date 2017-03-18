@@ -13,6 +13,7 @@ namespace CachetHQ\Tests\Cachet\Bus\Events\Incident;
 
 use CachetHQ\Cachet\Bus\Events\Incident\IncidentWasReportedEvent;
 use CachetHQ\Cachet\Models\Incident;
+use CachetHQ\Cachet\Models\User;
 
 /**
  * This is the incident was reported event test class.
@@ -28,8 +29,12 @@ class IncidentWasReportedEventTest extends AbstractIncidentEventTestCase
 
     protected function getObjectAndParams()
     {
-        $params = ['incident' => new Incident()];
-        $object = new IncidentWasReportedEvent($params['incident']);
+        $params = [
+            'user'     => new User(),
+            'incident' => new Incident(),
+            'notify'   => true,
+        ];
+        $object = new IncidentWasReportedEvent($params['user'], $params['incident'], $params['notify']);
 
         return compact('params', 'object');
     }

@@ -11,6 +11,7 @@
 
 namespace CachetHQ\Cachet\Console\Commands;
 
+use CachetHQ\Cachet\Models\Action;
 use CachetHQ\Cachet\Models\Component;
 use CachetHQ\Cachet\Models\ComponentGroup;
 use CachetHQ\Cachet\Models\Incident;
@@ -50,7 +51,7 @@ class DemoSeederCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Seeds Cachet with demo data.';
+    protected $description = 'Seeds Cachet with demo data';
 
     /**
      * The settings repository.
@@ -84,6 +85,7 @@ class DemoSeederCommand extends Command
             return;
         }
 
+        $this->seedActions();
         $this->seedComponentGroups();
         $this->seedComponents();
         $this->seedIncidents();
@@ -96,6 +98,16 @@ class DemoSeederCommand extends Command
         $this->seedUsers();
 
         $this->info('Database seeded with demo data successfully!');
+    }
+
+    /**
+     * Seed the actions table.
+     *
+     * @return void
+     */
+    protected function seedActions()
+    {
+        Action::truncate();
     }
 
     /**
@@ -170,12 +182,12 @@ class DemoSeederCommand extends Command
                 'group_id'    => 2,
                 'link'        => 'https://styleci.io',
             ], [
-                'name'        => 'Patreon Page',
-                'description' => 'Support future development of Cachet.',
+                'name'        => 'GitHub',
+                'description' => '',
                 'status'      => 1,
                 'order'       => 0,
                 'group_id'    => 0,
-                'link'        => 'https://patreon.com/jbrooksuk',
+                'link'        => 'https://github.com/CachetHQ/Cachet',
             ],
         ];
 
@@ -347,6 +359,8 @@ EINCIDENT;
                 'scheduled_at' => (new DateTime())->add(new DateInterval('PT2H')),
             ],
         ];
+
+        Schedule::truncate();
 
         foreach ($defaultSchedules as $schedule) {
             Schedule::create($schedule);
