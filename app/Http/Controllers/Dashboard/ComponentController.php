@@ -12,10 +12,10 @@
 namespace CachetHQ\Cachet\Http\Controllers\Dashboard;
 
 use AltThree\Validator\ValidationException;
-use CachetHQ\Cachet\Bus\Commands\Component\AddComponentCommand;
+use CachetHQ\Cachet\Bus\Commands\Component\CreateComponentCommand;
 use CachetHQ\Cachet\Bus\Commands\Component\RemoveComponentCommand;
 use CachetHQ\Cachet\Bus\Commands\Component\UpdateComponentCommand;
-use CachetHQ\Cachet\Bus\Commands\ComponentGroup\AddComponentGroupCommand;
+use CachetHQ\Cachet\Bus\Commands\ComponentGroup\CreateComponentGroupCommand;
 use CachetHQ\Cachet\Bus\Commands\ComponentGroup\RemoveComponentGroupCommand;
 use CachetHQ\Cachet\Bus\Commands\ComponentGroup\UpdateComponentGroupCommand;
 use CachetHQ\Cachet\Models\Component;
@@ -149,7 +149,7 @@ class ComponentController extends Controller
         $tags = preg_split('/ ?, ?/', $tags);
 
         // For every tag, do we need to create it?
-        $componentTags = array_map(function ($taggable) use ($component) {
+        $componentTags = array_map(function ($taggable) {
             return Tag::firstOrCreate(['name' => $taggable])->id;
         }, $tags);
 
@@ -182,7 +182,7 @@ class ComponentController extends Controller
         $tags = array_pull($componentData, 'tags');
 
         try {
-            $component = dispatch(new AddComponentCommand(
+            $component = dispatch(new CreateComponentCommand(
                 $componentData['name'],
                 $componentData['description'],
                 $componentData['status'],
@@ -203,7 +203,7 @@ class ComponentController extends Controller
         $tags = preg_split('/ ?, ?/', $tags);
 
         // For every tag, do we need to create it?
-        $componentTags = array_map(function ($taggable) use ($component) {
+        $componentTags = array_map(function ($taggable) {
             return Tag::firstOrCreate(['name' => $taggable])->id;
         }, $tags);
 
@@ -276,7 +276,7 @@ class ComponentController extends Controller
     public function postAddComponentGroup()
     {
         try {
-            $group = dispatch(new AddComponentGroupCommand(
+            $group = dispatch(new CreateComponentGroupCommand(
                 Binput::get('name'),
                 Binput::get('order', 0),
                 Binput::get('collapsed'),

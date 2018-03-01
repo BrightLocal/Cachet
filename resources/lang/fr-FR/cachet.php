@@ -27,15 +27,14 @@ return [
 
     // Incidents
     'incidents' => [
-        'none'          => 'Aucun incident signalé',
-        'past'          => 'Incidents antérieurs',
-        'previous_week' => 'Semaine précédente',
-        'next_week'     => 'Semaine suivante',
-        'stickied'      => 'Incidents épinglés',
-        'scheduled'     => 'Maintenance Planifiée',
-        'scheduled_at'  => ', planifé à :timestamp',
-        'posted'        => 'Posté à :timestamp',
-        'status'        => [
+        'none'         => 'Aucun incident signalé',
+        'past'         => 'Incidents antérieurs',
+        'stickied'     => 'Incidents épinglés',
+        'scheduled'    => 'Maintenance Planifiée',
+        'scheduled_at' => ', planifé à :timestamp',
+        'posted'       => 'Posté à :timestamp',
+        'posted_at'    => 'Posté à : timestamp',
+        'status'       => [
             1 => 'Enquête en cours',
             2 => 'Identifié',
             3 => 'Sous surveillance',
@@ -77,7 +76,7 @@ return [
     // Subscriber
     'subscriber' => [
         'subscribe'   => 'Abonnez-vous pour obtenir les dernières mises à jour.',
-        'unsubscribe' => 'Unsubscribe at :link',
+        'unsubscribe' => 'Se désinscrire :link',
         'button'      => 'S\'abonner',
         'manage'      => [
             'no_subscriptions' => 'Vous êtes actuellement abonné à toutes les mises à jour.',
@@ -99,7 +98,7 @@ return [
         'title'    => 'Inscription',
         'username' => 'Nom d\'utilisateur',
         'email'    => 'Adresse e-mail',
-        'password' => 'Mot de passe ',
+        'password' => 'Mot de passe',
         'success'  => 'Votre compte a été créé.',
         'failure'  => 'Un problème est survenu lors de votre inscription.',
     ],

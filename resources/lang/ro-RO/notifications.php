@@ -12,54 +12,97 @@
 return [
     'component' => [
         'status_update' => [
-            'subject' => 'Component Status Updated',
-            'title'   => 'A component\'s status was updated!',
-            'content' => ':name status changed from :old_status to :new_status.',
+            'mail' => [
+                'subject'  => 'Starea componentei a fost actualizată',
+                'greeting' => 'Starea unei componente a fost actualizată!',
+                'content'  => 'Starea :name a fost schimbată din :old_status în :new_status.',
+                'action'   => 'Vizualizare',
+            ],
+            'slack' => [
+                'title'   => 'Starea componentei a fost actualizată',
+                'content' => 'Starea :name a fost schimbată din :old_status în :new_status.',
+            ],
+            'sms' => [
+                'content' => 'Starea :name a fost schimbată din :old_status în :new_status.',
+            ],
         ],
     ],
     'incident' => [
         'new' => [
-            'subject' => 'New Incident Reported',
-            'content' => ':name was reported',
-            'title'   => 'A new incident was reported at :app_name status page.',
-            'action'  => 'View',
+            'mail' => [
+                'subject'  => 'Incident nou raportat',
+                'greeting' => 'Un nou incident a fost raportat la :app_name.',
+                'content'  => 'Incidentul :name a fost raportat',
+                'action'   => 'Vizualizare',
+            ],
+            'slack' => [
+                'title'   => 'Incidentul :name a fost raportat',
+                'content' => 'Un nou incident a fost raportat la :app_name',
+            ],
+            'sms' => [
+                'content' => 'Un nou incident a fost raportat la :app_name.',
+            ],
         ],
         'update' => [
-            'subject' => 'Incident Updated',
-            'content' => ':name was updated',
-            'title'   => ':name was updated to :new_status',
-            'action'  => 'View',
+            'mail' => [
+                'subject' => 'Incident actualizat',
+                'content' => ':name a fost actualizat(ă)',
+                'title'   => ':name a fost actualizată la :new_status',
+                'action'  => 'Vizualizare',
+            ],
+            'slack' => [
+                'title'   => ':name actualizat(ă)',
+                'content' => ':name a fost actualizată la :new_status',
+            ],
+            'sms' => [
+                'content' => 'Incidentul :name a fost actualizat',
+            ],
         ],
     ],
     'schedule' => [
         'new' => [
-            'subject' => 'New Schedule Created',
-            'content' => ':name was scheduled for :date',
-            'title'   => 'A new scheduled maintenance was created.',
-            'action'  => 'View',
+            'mail' => [
+                'subject' => 'Planificare nouă creată',
+                'content' => ':name a fost planificat pentru data :date',
+                'title'   => 'O nouă mentenanță programată a fost creată.',
+                'action'  => 'Vizualizare',
+            ],
+            'slack' => [
+                'title'   => 'Planificare nouă creată!',
+                'content' => ':name a fost planificat pentru data :date',
+            ],
+            'sms' => [
+                'content' => ':name a fost planificat pentru data :date',
+            ],
         ],
     ],
     'subscriber' => [
         'verify' => [
-            'subject' => 'Verify Your Subscription',
-            'content' => 'Click to verify your subscription to :app_name status page.',
-            'title'   => 'Verify your subscription to :app_name status page.',
-            'action'  => 'Verify',
+            'mail' => [
+                'subject' => 'Verificați-vă abonamentul',
+                'content' => 'Apăsați pentru a vă verifica abonamentul la pagina de stare :app_name.',
+                'title'   => 'Verificați-vă abonamentul la pagina de stare :app_name.',
+                'action'  => 'Verificați',
+            ],
         ],
     ],
     'system' => [
         'test' => [
-            'subject' => 'Ping from Cachet!',
-            'content' => 'This is a test notification from Cachet!',
-            'title'   => '🔔',
+            'mail' => [
+                'subject' => 'Ping de la Cachet!',
+                'content' => 'Aceasta este o notificare de test de la Cachet!',
+                'title'   => '🔔',
+            ],
         ],
     ],
     'user' => [
         'invite' => [
-            'subject' => 'Your invitation is inside...',
-            'content' => 'You have been invited to join :app_name status page.',
-            'title'   => 'You\'re invited to join :app_name status page.',
-            'action'  => 'Accept',
+            'mail' => [
+                'subject' => 'Invitația dvs. este în interior...',
+                'content' => 'Ați fost invitat(ă) să vă alăturați paginii de stare :app_name.',
+                'title'   => 'Ai fost invitat să te alături paginii de stare :app_name.',
+                'action'  => 'Accept(ă)',
+            ],
         ],
     ],
 ];

@@ -12,54 +12,97 @@
 return [
     'component' => [
         'status_update' => [
-            'subject' => 'Component Status Updated',
-            'title'   => 'A component\'s status was updated!',
-            'content' => ':name status changed from :old_status to :new_status.',
+            'mail' => [
+                'subject'  => 'Status Komponen Telah Diperbarui',
+                'greeting' => 'Status sebuah komponen telah diperbarui!',
+                'content'  => 'Status :name telah berubah dari :old_status ke :new_status.',
+                'action'   => 'Lihat',
+            ],
+            'slack' => [
+                'title'   => 'Status Komponen Telah Diperbarui',
+                'content' => 'Status :name telah berubah dari :old_status ke :new_status.',
+            ],
+            'sms' => [
+                'content' => 'Status :name telah berubah dari :old_status ke :new_status.',
+            ],
         ],
     ],
     'incident' => [
         'new' => [
-            'subject' => 'New Incident Reported',
-            'content' => ':name was reported',
-            'title'   => 'A new incident was reported at :app_name status page.',
-            'action'  => 'View',
+            'mail' => [
+                'subject'  => 'Insiden baru telah dilaporkan',
+                'greeting' => 'Sebuah insiden baru dilaporkan di :app_name.',
+                'content'  => 'Insiden :name dilaporkan',
+                'action'   => 'Lihat',
+            ],
+            'slack' => [
+                'title'   => 'Insiden: nama Dilaporkan',
+                'content' => 'Sebuah insiden baru dilaporkan di: applikasi_nama',
+            ],
+            'sms' => [
+                'content' => 'Sebuah insiden baru dilaporkan di :app_name.',
+            ],
         ],
         'update' => [
-            'subject' => 'Incident Updated',
-            'content' => ':name was updated',
-            'title'   => ':name was updated to :new_status',
-            'action'  => 'View',
+            'mail' => [
+                'subject' => 'Insiden Diperbarui',
+                'content' => ':nama telah diperbarui',
+                'title'   => ':nama telah diperbarui ke :baru_status',
+                'action'  => 'Lihat',
+            ],
+            'slack' => [
+                'title'   => ':nama Diperbarui',
+                'content' => ':nama telah diperbarui ke :baru_status',
+            ],
+            'sms' => [
+                'content' => 'Insiden: nama telah diperbarui',
+            ],
         ],
     ],
     'schedule' => [
         'new' => [
-            'subject' => 'New Schedule Created',
-            'content' => ':name was scheduled for :date',
-            'title'   => 'A new scheduled maintenance was created.',
-            'action'  => 'View',
+            'mail' => [
+                'subject' => 'Jadwal Baru Dibuat',
+                'content' => ':nama dijadwalkan untuk :tanggal',
+                'title'   => 'Pemeliharaan terjadwal baru telah dibuat.',
+                'action'  => 'Lihat',
+            ],
+            'slack' => [
+                'title'   => 'Jadwal Baru Dibuat!',
+                'content' => ':nama dijadwalkan untuk :tanggal',
+            ],
+            'sms' => [
+                'content' => ':nama dijadwalkan untuk :tanggal',
+            ],
         ],
     ],
     'subscriber' => [
         'verify' => [
-            'subject' => 'Verify Your Subscription',
-            'content' => 'Click to verify your subscription to :app_name status page.',
-            'title'   => 'Verify your subscription to :app_name status page.',
-            'action'  => 'Verify',
+            'mail' => [
+                'subject' => 'Verifikasi Langganan Anda',
+                'content' => 'Klik untuk memverifikasi langganan Anda ke :halaman status aplikasi_nama.',
+                'title'   => 'Verifikasi langganan Anda ke :halaman status aplikasi_nama.',
+                'action'  => 'Memeriksa',
+            ],
         ],
     ],
     'system' => [
         'test' => [
-            'subject' => 'Ping from Cachet!',
-            'content' => 'This is a test notification from Cachet!',
-            'title'   => '🔔',
+            'mail' => [
+                'subject' => 'Ping dari Cachet!',
+                'content' => 'Ini adalah pemberitahuan pengujian dari Cachet!',
+                'title'   => '🔔',
+            ],
         ],
     ],
     'user' => [
         'invite' => [
-            'subject' => 'Your invitation is inside...',
-            'content' => 'You have been invited to join :app_name status page.',
-            'title'   => 'You\'re invited to join :app_name status page.',
-            'action'  => 'Accept',
+            'mail' => [
+                'subject' => 'Undangan kamu ada di dalamnya...',
+                'content' => 'Anda telah diundang untuk bergabung :halaman status aplikasi_nama.',
+                'title'   => 'Anda diundang untuk bergabung: halaman status aplikasi_nama.',
+                'action'  => 'Diterima',
+            ],
         ],
     ],
 ];

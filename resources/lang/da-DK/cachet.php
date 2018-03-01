@@ -14,7 +14,7 @@ return [
     'components' => [
         'last_updated' => 'Sidst opdateret :timestamp',
         'status'       => [
-            0 => 'Unknown',
+            0 => 'Ukendt',
             1 => 'Normal',
             2 => 'Hastighedsproblemer',
             3 => 'Nogen udfald',
@@ -27,15 +27,14 @@ return [
 
     // Incidents
     'incidents' => [
-        'none'          => 'Ingen hændelser er rapporteret',
-        'past'          => 'Tidligere hændelser',
-        'previous_week' => 'Forrige uge',
-        'next_week'     => 'Næste uge',
-        'stickied'      => 'Stickied Incidents',
-        'scheduled'     => 'Planlagt vedligeholdelse',
-        'scheduled_at'  => ', planlagt til :timestamp',
-        'posted'        => 'Posted :timestamp',
-        'status'        => [
+        'none'         => 'Ingen hændelser er rapporteret',
+        'past'         => 'Tidligere hændelser',
+        'stickied'     => 'Låst hændelse',
+        'scheduled'    => 'Vedligeholdelse',
+        'scheduled_at' => ', planlagt til :timestamp',
+        'posted'       => 'Sendt :timestamp',
+        'posted_at'    => 'Indsendt :timestamp',
+        'status'       => [
             1 => 'Undersøger',
             2 => 'Identificeret',
             3 => 'Overvåger',
@@ -46,17 +45,17 @@ return [
     // Schedule
     'schedules' => [
         'status' => [
-            0 => 'Upcoming',
-            1 => 'In Progress',
-            2 => 'Complete',
+            0 => 'Kommende',
+            1 => 'Under udførsel',
+            2 => 'Fuldført',
         ],
     ],
 
     // Service Status
     'service' => [
         'good'  => '[0,1] Systemet virker|[2,Inf] Alle systemer virker',
-        'bad'   => '[0,1] Systemet har i øjeblikket problemer|[2,Inf] Nogle systemer har i øjeblikket problemer',
-        'major' => '[0,1] Systemet har i øjeblikket store problemer|[2,Inf] Nogle systemer har i øjeblikket store problemer',
+        'bad'   => '[0,1] Systemet har i øjeblikket problemer|[2,*] Nogle systemer har i øjeblikket problemer',
+        'major' => '[0,1] Systemet har i øjeblikket store problemer|[2,*] Nogle systemer har i øjeblikket store problemer',
     ],
 
     'api' => [
@@ -77,7 +76,7 @@ return [
     // Subscriber
     'subscriber' => [
         'subscribe'   => 'Tilmeld dig for at få de seneste opdateringer',
-        'unsubscribe' => 'Unsubscribe at :link',
+        'unsubscribe' => 'Afmeld via: link',
         'button'      => 'Abonner',
         'manage'      => [
             'no_subscriptions' => 'Du abonner i øjeblikket på alle opdateringer.',
@@ -122,7 +121,7 @@ return [
     'home'            => 'Hjem',
     'description'     => 'Hold dig opdateret med de seneste opdateringer fra :app.',
     'powered_by'      => 'Drevet af <a href="https://cachethq.io" class="links"> Cachet</a>.',
-    'timezone'        => 'Tidspunkter er vist i :timezone.',
+    'timezone'        => 'Klokkeslæt vises i :timezone.',
     'about_this_site' => 'Om denne side',
     'rss-feed'        => 'RSS',
     'atom-feed'       => 'Atom',

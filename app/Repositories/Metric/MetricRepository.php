@@ -60,18 +60,18 @@ class MetricRepository
     public function listPointsLastHour(Metric $metric)
     {
         $dateTime = $this->dates->make();
-        $pointKey = $dateTime->format('H:i');
-        $points = $this->repository->getPointsSinceMinutes($metric, 60)->pluck('value', 'key');
+        $pointKey = $dateTime->format('Y-m-d H:i');
+        $points = $this->repository->getPointsSinceMinutes($metric, 60)->pluck('value', 'key')->take(60);
 
         for ($i = 0; $i <= 60; $i++) {
             if (!$points->has($pointKey)) {
                 $points->put($pointKey, $metric->default_value);
             }
 
-            $pointKey = $dateTime->sub(new DateInterval('PT1M'))->format('H:i');
+            $pointKey = $dateTime->sub(new DateInterval('PT1M'))->format('Y-m-d H:i');
         }
 
-        return $points->sortBy(function ($point, $key) use ($points) {
+        return $points->sortBy(function ($point, $key) {
             return $key;
         });
     }
@@ -87,7 +87,7 @@ class MetricRepository
     public function listPointsToday(Metric $metric, $hours = 12)
     {
         $dateTime = $this->dates->make();
-        $pointKey = $dateTime->format('H:00');
+        $pointKey = $dateTime->format('Y-m-d H:00');
         $points = $this->repository->getPointsSinceHour($metric, $hours)->pluck('value', 'key');
 
         for ($i = 0; $i <= $hours; $i++) {
@@ -95,10 +95,10 @@ class MetricRepository
                 $points->put($pointKey, $metric->default_value);
             }
 
-            $pointKey = $dateTime->sub(new DateInterval('PT1H'))->format('H:00');
+            $pointKey = $dateTime->sub(new DateInterval('PT1H'))->format('Y-m-d H:00');
         }
 
-        return $points->sortBy(function ($point, $key) use ($points) {
+        return $points->sortBy(function ($point, $key) {
             return $key;
         });
     }
@@ -124,7 +124,7 @@ class MetricRepository
             $pointKey = $dateTime->sub(new DateInterval('P1D'))->format('Y-m-d');
         }
 
-        return $points->sortBy(function ($point, $key) use ($points) {
+        return $points->sortBy(function ($point, $key) {
             return $key;
         });
     }
@@ -151,7 +151,7 @@ class MetricRepository
             $pointKey = $dateTime->sub(new DateInterval('P1D'))->format('Y-m-d');
         }
 
-        return $points->sortBy(function ($point, $key) use ($points) {
+        return $points->sortBy(function ($point, $key) {
             return $key;
         });
     }

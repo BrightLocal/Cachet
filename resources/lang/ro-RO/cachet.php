@@ -14,7 +14,7 @@ return [
     'components' => [
         'last_updated' => 'Ultima actualizare :timestamp',
         'status'       => [
-            0 => 'Unknown',
+            0 => 'Necunoscut',
             1 => 'Operaţional',
             2 => 'Probleme de performanţă',
             3 => 'Ȋntrerupere parțială',
@@ -27,15 +27,14 @@ return [
 
     // Incidents
     'incidents' => [
-        'none'          => 'Nici un incident raportat',
-        'past'          => 'Incidente anterioare',
-        'previous_week' => 'Săptămâna Anterioară',
-        'next_week'     => 'Săptămâna Următoare',
-        'stickied'      => 'Incidente fixate',
-        'scheduled'     => 'Întreținere programată',
-        'scheduled_at'  => ', programată: timestamp',
-        'posted'        => 'Publicat :timestamp',
-        'status'        => [
+        'none'         => 'Nici un incident raportat',
+        'past'         => 'Incidente anterioare',
+        'stickied'     => 'Incidente fixate',
+        'scheduled'    => 'Întreținere programată',
+        'scheduled_at' => ', programată: timestamp',
+        'posted'       => 'Publicat :timestamp',
+        'posted_at'    => 'Posted at :timestamp',
+        'status'       => [
             1 => 'Sub investigație',
             2 => 'Identificat',
             3 => 'Sub observație',
@@ -46,9 +45,9 @@ return [
     // Schedule
     'schedules' => [
         'status' => [
-            0 => 'Upcoming',
-            1 => 'In Progress',
-            2 => 'Complete',
+            0 => 'Urmează',
+            1 => 'În progres',
+            2 => 'Terminat',
         ],
     ],
 
@@ -77,7 +76,7 @@ return [
     // Subscriber
     'subscriber' => [
         'subscribe'   => 'Abonează-te pentru a primi cele mai recente actualizări',
-        'unsubscribe' => 'Unsubscribe at :link',
+        'unsubscribe' => 'Dezabonare de la :link',
         'button'      => 'Abonează-te',
         'manage'      => [
             'no_subscriptions' => 'Acum eşti abonat la toate actualizările.',

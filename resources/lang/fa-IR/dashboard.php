@@ -16,12 +16,25 @@ return [
 
     // Incidents
     'incidents' => [
-        'title'                    => 'Incidents &amp; Schedule',
+        'title'                    => 'Incidents & Schedule',
         'incidents'                => 'Incidents',
         'logged'                   => '{0} There are no incidents, good work.|You have logged one incident.|You have reported <strong>:count</strong> incidents.',
         'incident-create-template' => 'ایجاد قالب',
         'incident-templates'       => 'Incident Templates',
-        'updates'                  => '{0} Zero Updates|One Update|:count Updates',
+        'updates'                  => [
+            'title'   => 'Incident updates for :incident',
+            'count'   => '{0} Zero Updates|[1] One Update|[2] Two Updates|[3,*] Several Updates',
+            'add'     => [
+                'title'   => 'Create new incident update',
+                'success' => 'Your new incident update has been created.',
+                'failure' => 'Something went wrong with the incident update.',
+            ],
+            'edit' => [
+                'title'   => 'Edit incident update',
+                'success' => 'The incident update has been updated.',
+                'failure' => 'Something went wrong updating the incident update',
+            ],
+        ],
         'add'                      => [
             'title'   => 'Report an incident',
             'success' => 'Incident added.',
@@ -35,10 +48,6 @@ return [
         'delete' => [
             'success' => 'The incident has been deleted and will not show on your status page.',
             'failure' => 'The incident could not be deleted, please try again.',
-        ],
-        'update' => [
-            'title'    => 'Create new incident update',
-            'subtitle' => 'Add an update to <strong>:incident</strong>',
         ],
 
         // Incident templates
@@ -146,13 +155,15 @@ return [
     ],
     // Subscribers
     'subscribers' => [
-        'subscribers'      => 'Subscribers',
-        'description'      => 'Subscribers will receive email updates when incidents are created or components are updated.',
-        'verified'         => 'Verified',
-        'not_verified'     => 'Not verified',
-        'subscriber'       => ':email, subscribed :date',
-        'no_subscriptions' => 'Subscribed to all updates',
-        'add'              => [
+        'subscribers'          => 'Subscribers',
+        'description'          => 'Subscribers will receive email updates when incidents are created or components are updated.',
+        'description_disabled' => 'To use this feature, you need allow people to signup for notifications.',
+        'verified'             => 'Verified',
+        'not_verified'         => 'Not verified',
+        'subscriber'           => ':email, subscribed :date',
+        'no_subscriptions'     => 'Subscribed to all updates',
+        'global'               => 'Globally subscribed',
+        'add'                  => [
             'title'   => 'Add a new subscriber',
             'success' => 'Subscriber has been added!',
             'failure' => 'Something went wrong adding the subscriber, please try again.',
@@ -170,7 +181,7 @@ return [
         'team'        => 'Team',
         'member'      => 'Member',
         'profile'     => 'Profile',
-        'description' => 'Team Members will be able to add, modify &amp; edit components and incidents.',
+        'description' => 'Team Members will be able to add, modify & edit components and incidents.',
         'add'         => [
             'title'   => 'اضافه کردن یک عضو به تیم',
             'success' => 'عضو تیم اضافه شد.',

@@ -13,6 +13,11 @@
 <div class="content-wrapper">
     <div class="row">
         <div class="col-md-12">
+            @if(!$notifications_enabled)
+                <div class="alert alert-info" role="alert">
+                    {{ trans('forms.incidents.notify_disabled') }}
+                </div>
+            @endif
             @include('dashboard.partials.errors')
             <form class="form-vertical" name="IncidentForm" role="form" method="POST" autocomplete="off">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -44,6 +49,25 @@
                             {{ trans('cachet.incidents.status')[4] }}
                         </label>
                     </div>
+                    @if($incident->component)
+                    <div class="form-group hidden" id="component-status">
+                        <input type="hidden" name="component_id" value="{{ $incident->component->id }}">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="radio-items">
+                                    @foreach(trans('cachet.components.status') as $statusID => $status)
+                                    <div class="radio-inline">
+                                        <label>
+                                            <input type="radio" name="component_status" value="{{ $statusID }}">
+                                            {{ $status }}
+                                        </label>
+                                    </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
                     <div class="form-group">
                         <label for="incident-visibility">{{ trans('forms.incidents.visibility') }}</label>
                         <select name="visible" id="incident-visibility" class="form-control">

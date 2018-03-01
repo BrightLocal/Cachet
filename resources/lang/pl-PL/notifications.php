@@ -12,54 +12,97 @@
 return [
     'component' => [
         'status_update' => [
-            'subject' => 'Component Status Updated',
-            'title'   => 'A component\'s status was updated!',
-            'content' => ':name status changed from :old_status to :new_status.',
+            'mail' => [
+                'subject'  => 'Status komponentu zaktualizowany',
+                'greeting' => 'Status komponentów został zaktualizowany!',
+                'content'  => 'Status :name zmienił się z :old_status na :new_status.',
+                'action'   => 'Widok',
+            ],
+            'slack' => [
+                'title'   => 'Status komponentu zaktualizowany',
+                'content' => 'Status :name zmienił się z :old_status na :new_status.',
+            ],
+            'sms' => [
+                'content' => 'Status :name zmienił się z :old_status na :new_status.',
+            ],
         ],
     ],
     'incident' => [
         'new' => [
-            'subject' => 'New Incident Reported',
-            'content' => ':name was reported',
-            'title'   => 'A new incident was reported at :app_name status page.',
-            'action'  => 'View',
+            'mail' => [
+                'subject'  => 'Zgłoszone nowe zdarzenie',
+                'greeting' => 'Nowe zdarzenie zostało zgłoszone na stronie statusu :app_name.',
+                'content'  => 'Zdarzenie :name została zarejestrowana',
+                'action'   => 'Widok',
+            ],
+            'slack' => [
+                'title'   => 'Zdarzenie :name Zgłoszono',
+                'content' => 'Nowe zgłoszenie został zgłoszony w :app_name',
+            ],
+            'sms' => [
+                'content' => 'Nowe zdarzenie zostało zgłoszone na stronie statusu :app_name.',
+            ],
         ],
         'update' => [
-            'subject' => 'Incident Updated',
-            'content' => ':name was updated',
-            'title'   => ':name was updated to :new_status',
-            'action'  => 'View',
+            'mail' => [
+                'subject' => 'Zdarzenie zaktualizowane',
+                'content' => ':name został zaktualizowany',
+                'title'   => ':name został zaktualizowany na :new_status',
+                'action'  => 'Widok',
+            ],
+            'slack' => [
+                'title'   => 'Zaktualizowano :name',
+                'content' => ':name został zaktualizowany na :new_status',
+            ],
+            'sms' => [
+                'content' => 'Zdarzenie :name zostało zaktualizowane',
+            ],
         ],
     ],
     'schedule' => [
         'new' => [
-            'subject' => 'New Schedule Created',
-            'content' => ':name was scheduled for :date',
-            'title'   => 'A new scheduled maintenance was created.',
-            'action'  => 'View',
+            'mail' => [
+                'subject' => 'Harmonogram został utworzony',
+                'content' => ':name zaplanowano na :date',
+                'title'   => 'Zaplanowana nowa konserwacje została utworzona.',
+                'action'  => 'Widok',
+            ],
+            'slack' => [
+                'title'   => 'Nowy Harmonogram Utworzony!',
+                'content' => ':name zaplanowano na :date',
+            ],
+            'sms' => [
+                'content' => ':name zaplanowano na :date',
+            ],
         ],
     ],
     'subscriber' => [
         'verify' => [
-            'subject' => 'Verify Your Subscription',
-            'content' => 'Click to verify your subscription to :app_name status page.',
-            'title'   => 'Verify your subscription to :app_name status page.',
-            'action'  => 'Verify',
+            'mail' => [
+                'subject' => 'Potwierdź subskrypcje',
+                'content' => 'Kliknij żeby potwierdzić subskrypcje na stronie :app_name.',
+                'title'   => 'Potwierdź subskrypcję dla strony statusu :app_name.',
+                'action'  => 'Zweryfikuj',
+            ],
         ],
     ],
     'system' => [
         'test' => [
-            'subject' => 'Ping from Cachet!',
-            'content' => 'This is a test notification from Cachet!',
-            'title'   => '🔔',
+            'mail' => [
+                'subject' => 'Ping z Cachet!',
+                'content' => 'To jest powiadomienie testowe z Cachet!',
+                'title'   => '🔔',
+            ],
         ],
     ],
     'user' => [
         'invite' => [
-            'subject' => 'Your invitation is inside...',
-            'content' => 'You have been invited to join :app_name status page.',
-            'title'   => 'You\'re invited to join :app_name status page.',
-            'action'  => 'Accept',
+            'mail' => [
+                'subject' => 'Twoje zaproszenie jest w środku...',
+                'content' => 'Zostałeś zaproszony do dołączenia strony statusu :app_name.',
+                'title'   => 'Zostałeś zaproszony do dołączenia do strony statusu :app_name.',
+                'action'  => 'Zatwierdź',
+            ],
         ],
     ],
 ];
