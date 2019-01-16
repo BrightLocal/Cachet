@@ -12,13 +12,14 @@
 namespace CachetHQ\Cachet\Presenters;
 
 use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Support\Facades\Config;
 use Laravolt\Avatar\Facade as Avatar;
 use McCool\LaravelAutoPresenter\BasePresenter;
 
 /**
  * This is the user presenter class.
  *
- * @author James Brooks <james@bluebaytravel.co.uk>
+ * @author James Brooks <james@alt-three.com>
  */
 class UserPresenter extends BasePresenter implements Arrayable
 {
@@ -29,7 +30,7 @@ class UserPresenter extends BasePresenter implements Arrayable
      */
     public function avatar()
     {
-        if (setting('enable_external_dependencies')) {
+        if (Config::get('setting.enable_external_dependencies')) {
             return sprintf('https://www.gravatar.com/avatar/%s?size=%d', md5(strtolower($this->email)), 200);
         }
 

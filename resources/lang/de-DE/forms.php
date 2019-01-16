@@ -153,15 +153,16 @@ return [
             'display-graphs'                        => 'Graphen auf der Statusseite anzeigen?',
             'about-this-page'                       => 'Über diese Seite',
             'days-of-incidents'                     => 'Wie viele Tage mit Vorfällen sollen gezeigt werden?',
-            'time_before_refresh'                   => 'Aktualisierungsrate der Statusseite (in Sekunden).',
+            'time_before_refresh'                   => 'Status page refresh rate (in seconds)',
+            'major_outage_rate'                     => 'Major outage threshold (in %)',
             'banner'                                => 'Banner Bild',
-            'banner-help'                           => 'Es wird empfohlen, dass Sie keine Dateien die breiter als 930 Pixel sind hochladen .',
+            'banner-help'                           => "It's recommended that you upload files no bigger than 930px wide",
             'subscribers'                           => 'Personen die Anmeldung für E-Mail-Benachrichtigung erlauben?',
             'suppress_notifications_in_maintenance' => 'Suppress notifications when incident occurs during maintenance period?',
             'skip_subscriber_verification'          => 'Verifizierung der Nutzer überspringen? (Warnung, du könntest gespammt werden)',
             'automatic_localization'                => 'Die Status-Seite automatisch auf die Sprache deiner Besucher anpassen?',
             'enable_external_dependencies'          => 'Drittanbieter Abhängigkeiten erlauben (Google Schriftarten, Tracker, etc...)',
-            'show_timezone'                         => 'Zeitzone in der sich die Status-Seite befindet anzeigen.',
+            'show_timezone'                         => 'Show the timezone the status page is running in',
             'only_disrupted_days'                   => 'Im Verlauf nur Tage mit Vorfällen anzeigen?',
         ],
         'analytics' => [
@@ -177,8 +178,10 @@ return [
             'incident-date-format' => 'Ereignis Uhrzeit Format',
         ],
         'security' => [
-            'allowed-domains'      => 'Erlaubte Domains',
-            'allowed-domains-help' => 'Durch Kommata trennen. Die oben genannte Domain ist standardmäßig erlaubt.',
+            'allowed-domains'           => 'Erlaubte Domains',
+            'allowed-domains-help'      => 'Durch Kommata trennen. Die oben genannte Domain ist standardmäßig erlaubt.',
+            'always-authenticate'       => 'Always authenticate',
+            'always-authenticate-help'  => 'Require login to view any Cachet page',
         ],
         'stylesheet' => [
             'custom-css' => 'Benutzerdefiniertes Stylesheet',
@@ -188,7 +191,7 @@ return [
             'background-fills'        => 'Hintergrunddateien (Komponenten, Vorfälle, Footer)',
             'banner-background-color' => 'Banner Background Color',
             'banner-padding'          => 'Banner Padding',
-            'fullwidth-banner'        => 'Enable fullwidth banner?',
+            'fullwidth-banner'        => 'Enable full width banner?',
             'text-color'              => 'Schriftfarbe',
             'dashboard-login'         => 'Dashboard-Button im Footer anzeigen?',
             'reds'                    => 'Rot (Genutzt für Fehler)',
@@ -218,7 +221,7 @@ return [
         ],
         'team' => [
             'description' => 'Invite your team members by entering their email addresses here.',
-            'email'       => 'Email #:id',
+            'email'       => 'Your Team Members Email Address',
         ],
     ],
 
@@ -238,7 +241,7 @@ return [
     'remove'         => 'Entfernen',
     'invite'         => 'Einladen',
     'signup'         => 'Registrieren',
-    'manage_updates' => 'Updates verwalten',
+    'manage_updates' => 'Manage Updates',
 
     // Other
     'optional' => '* optional',

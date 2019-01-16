@@ -14,7 +14,7 @@ return [
     'components' => [
         'last_updated' => 'Última atualização :timestamp',
         'status'       => [
-            0 => 'Desconhecido',
+            0 => 'Unknown',
             1 => 'Operacional',
             2 => 'Problemas de performance',
             3 => 'Indisponibilidade parcial',
@@ -23,17 +23,19 @@ return [
         'group' => [
             'other' => 'Outros componentes',
         ],
+        'select_all'   => 'Select All',
+        'deselect_all' => 'Deselect All',
     ],
 
     // Incidents
     'incidents' => [
         'none'         => 'Nenhum incidente reportado',
         'past'         => 'Incidentes anteriores',
-        'stickied'     => 'Incidentes Fixados',
-        'scheduled'    => 'Manutenção',
+        'stickied'     => 'Stickied Incidents',
+        'scheduled'    => 'Maintenance',
         'scheduled_at' => ', agendada :timestamp',
-        'posted'       => 'Postado :timestamp',
-        'posted_at'    => 'Postado em :timestamp',
+        'posted'       => 'Posted :timestamp',
+        'posted_at'    => 'Posted at :timestamp',
         'status'       => [
             1 => 'Investigando',
             2 => 'Identificado',
@@ -45,17 +47,17 @@ return [
     // Schedule
     'schedules' => [
         'status' => [
-            0 => 'Em breve',
-            1 => 'Em Progresso',
-            2 => 'Concluído',
+            0 => 'Upcoming',
+            1 => 'In Progress',
+            2 => 'Complete',
         ],
     ],
 
     // Service Status
     'service' => [
-        'good'  => '[0,1] Sistema operacional|[2,*] Todos os sistemas estão operacionais',
-        'bad'   => '[0,1] O sistema encontra-se com alguns problemas|[2,*] Alguns sistemas estão com problemas',
-        'major' => '[0,1]O sistema encontra-se com uma falha geral|[2,*]Alguns sistemas encontram-se com falhas gerais',
+        'good'  => '[0,1]System operational|[2,*]All systems are operational',
+        'bad'   => '[0,1]The system is experiencing issues|[2,*]Some systems are experiencing issues',
+        'major' => '[0,1]The system is experiencing major issues|[2,*]Some systems are experiencing major issues',
     ],
 
     'api' => [
@@ -75,12 +77,17 @@ return [
 
     // Subscriber
     'subscriber' => [
-        'subscribe'   => 'Inscreva-se para obter as atualizações mais recentes',
-        'unsubscribe' => 'Cancelar inscrição em: link',
-        'button'      => 'Inscreva-se',
-        'manage'      => [
-            'no_subscriptions' => 'Você está atualmente inscrito a todas as atualizações.',
-            'my_subscriptions' => 'Você está atualmente inscrito para as seguintes atualizações.',
+        'subscribe'           => 'Subscribe to status changes and incident updates',
+        'unsubscribe'         => 'Unsubscribe',
+        'button'              => 'Inscreva-se',
+        'manage_subscription' => 'Manage subscription',
+        'manage'              => [
+            'notifications'       => 'Notificações',
+            'notifications_for'   => 'Manage notifications for',
+            'no_subscriptions'    => 'Você está atualmente inscrito a todas as atualizações.',
+            'update_subscription' => 'Update Subscription',
+            'my_subscriptions'    => 'Você está atualmente inscrito para as seguintes atualizações.',
+            'manage_at_link'      => 'Manage your subscriptions at :link',
         ],
         'email' => [
             'subscribe'          => 'Inscreva-se para atualizações via e-mail.',
@@ -117,11 +124,20 @@ return [
         ],
     ],
 
+    // Meta descriptions
+    'meta' => [
+        'description' => [
+            'incident'  => 'Details and updates about the :name incident that occurred on :date',
+            'schedule'  => 'Details about the scheduled maintenance period :name starting :startDate',
+            'subscribe' => 'Subscribe to :app in order to receive updates of incidents and scheduled maintenance periods',
+            'overview'  => 'Mantenha-se atualizado com as últimas atualizações de serviço de: app.',
+        ],
+    ],
+
     // Other
     'home'            => 'Início',
-    'description'     => 'Mantenha-se atualizado com as últimas atualizações de serviço de: app.',
     'powered_by'      => 'Desenvolvido por <a href="https://cachethq.io" class="links">Cachet</a>.',
-    'timezone'        => 'Horários são exibidos em :timezone.',
+    'timezone'        => 'Times are shown in :timezone.',
     'about_this_site' => 'Sobre este Site',
     'rss-feed'        => 'RSS',
     'atom-feed'       => 'Atom',
